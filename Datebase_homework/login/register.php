@@ -12,8 +12,7 @@ $username = $_POST['username'];
 $pass = $_POST['pass'];
 $identity = $_POST['identity'];
 $section = $_POST['section'];
-error_reporting(E_ALL & ~E_NOTICE);
-$link=new mysqli("localhost","root","111111","college2") or die("有错误".mysql_error());
+include('./login/conn.php');
 if($link)
 {
 	$link->query("SET NAMES 'UTF8'");

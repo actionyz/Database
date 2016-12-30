@@ -1,4 +1,11 @@
-
+<?php
+//include('../../loginregister_A5/loginregister/login/test.php');
+session_start();
+if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
+ header("Location:  ../login/user/demo.php");
+ exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,21 +35,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin Panel</a>
+                <a class="navbar-brand" href="index.php">Admin Panel</a>
             </div>
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active"><a href="index.html"><i class="fa fa-bullseye"></i> Dashboard</a></li>
-                    <li><a href="portfolio.html"><i class="fa fa-tasks"></i> Portfolio</a></li>
-                    <li><a href="forms.html"><i class="fa fa-globe"></i> Blog</a></li>
-                    <li><a href="signup.html"><i class="fa fa-list-ol"></i> SignUp</a></li>
-                    <li><a href="register.html"><i class="fa fa-font"></i> Register</a></li>
-                    <li><a href="forms.html"><i class="fa fa-font"></i> Timeline</a></li>
-                    <li><a href="forms.html"><i class="fa fa-list-ol"></i> Forms</a></li>
-                    <li><a href="forms.html"><i class="fa fa-font"></i> Typography</a></li>
-                    <li><a href="bootstrap-elements.html"><i class="fa fa-list-ul"></i> Bootstrap Elements</a></li>
-                    <li><a href="bootstrap-grid.html"><i class="fa fa-table"></i> Bootstrap Grid</a></li>
+                    <li class="active"><a href="index.php"><i class="fa fa-bullseye"></i> Dashboard</a></li>
+                    <li><a href="portfolio.php"><i class="fa fa-tasks"></i> 校园一角</a></li>
+                    <li><a href="blog.php"><i class="fa fa-globe"></i> 校园论坛</a></li>
+                    <li><a href="forms.php"><i class="fa fa-list-ol"></i> 教室预定</a></li>
+                    <li><a href="forms.php"><i class="fa fa-font"></i> 教室课程查询</a></li>
+                    <li><a href="forms.php"><i class="fa fa-font"></i> 教室报修</a></li>
+                    <li><a href="forms.php"><i class="fa fa-list-ol"></i> 教室排名</a></li>
+                    <li><a href="forms.php"><i class="fa fa-font"></i> Typography</a></li>
+                    <li><a href="bootstrap-elements.php"><i class="fa fa-list-ul"></i> Bootstrap Elements</a></li>
+                    <li><a href="bootstrap-grid.php"><i class="fa fa-table"></i> Bootstrap Grid</a></li>
                 </ul>
+
                 <ul class="nav navbar-nav navbar-right navbar-user">
                     <li class="dropdown messages-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
@@ -71,7 +79,7 @@
                             <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                             <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
                             <li class="divider"></li>
-                            <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                            <li><a href=" ../login/logout/logout.php"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
                 </ul>

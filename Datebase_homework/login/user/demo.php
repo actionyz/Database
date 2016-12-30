@@ -9,19 +9,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		<!-- bootstrap & fontawesome -->
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="assets/font-awesome/4.2.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../assets/font-awesome/4.2.0/css/font-awesome.min.css" />
 
 		<!-- text fonts -->
-		<link rel="stylesheet" href="assets/fonts/fonts.googleapis.com.css" />
+		<link rel="stylesheet" href="../assets/fonts/fonts.googleapis.com.css" />
 
 		<!-- ace styles -->
-		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="../assets/css/ace.min.css" />
 
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
 		<![endif]-->
-		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
 
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -63,7 +63,7 @@
 
 											<div class="space-6"></div>
 
-											<form action="./login/logincheck.php" method="POST">
+											<form action="../login/userlogin.php" method="POST">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
@@ -282,7 +282,7 @@
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->
-		<script src="assets/js/jquery.2.1.1.min.js"></script>
+		<script src="../assets/js/jquery.2.1.1.min.js"></script>
 
 		<!-- <![endif]-->
 
@@ -292,7 +292,7 @@
 
 		<!--[if !IE]> -->
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='assets/js/jquery.min.js'>"+"<"+"/script>");
+			window.jQuery || document.write("<script src='../assets/js/jquery.min.js'>"+"<"+"/script>");
 		</script>
 
 		<!-- <![endif]-->
@@ -303,7 +303,7 @@
 </script>
 <![endif]-->
 		<script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+			if('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
 
 		<!-- inline scripts related to this page -->
@@ -316,7 +316,7 @@
 				$(target).addClass('visible');//show target
 			 });
 			});
-			
+
 			
 			
 			//you don't need this, just used for changing background

@@ -7,5 +7,5 @@ if(isset($_COOKIE[session_name()]))
 	setcookie(session_name(),'',time-4200,'/');
 }
 session_destroy();
-header("Location:  ../../../loginregister_A5/loginregister/demo.php");
+header("Location:  ../../../login/admin/demo.php");
 ?>

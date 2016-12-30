@@ -2,7 +2,7 @@
 //include('../../loginregister_A5/loginregister/login/test.php');
 session_start();
 if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
- header("Location:  ../../loginregister_A5/loginregister/demo.php");
+ header("Location:  ../../login/admin/demo.php");
  exit();
 }
 ?>
