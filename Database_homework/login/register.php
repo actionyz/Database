@@ -12,7 +12,9 @@ $username = $_POST['username'];
 $pass = $_POST['pass'];
 $identity = $_POST['identity'];
 $section = $_POST['section'];
-include('./login/conn.php');
+
+
+include("./login/link.php");
 if($link)
 {
 	$link->query("SET NAMES 'UTF8'");
@@ -28,6 +30,6 @@ else
 <!DOCTYPE html>
 <html>
 <script type="text/javascript">
-setTimeout(" window.location.href='./demo.php'",0)
+setTimeout(" window.location.href='./user/demo.php'",0)
 </script>
 </html>

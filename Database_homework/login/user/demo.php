@@ -184,26 +184,34 @@
 											<div class="space-6"></div>
 											<p>填写信息: </p>
 
-											<form action="./register.php" method="post">
+											<form action="../register.php" method="post">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 															<input type="text" class="form-control" name="userid" placeholder="用户ID" />
-															<i class="ace-icon fa fa-envelope"></i>
+															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control"
-															name="section" placeholder="单位" />
-															<i class="ace-icon fa fa-envelope"></i>
+							
+															<select  type="text" class="form-control" name="section" placeholder="单位">
+																	<option value=""></option>
+																	<option value="四大队三营"> 四大队三营 </option>
+																	<option value="四大队四营"> 四大队四营 </option>
+																	
+															</select>
 														</span>
 													</label>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control"
-															name="identity" placeholder="身份" />
-															<i class="ace-icon fa fa-envelope"></i>
+																<select  type="text" class="form-control" name="identity" placeholder="身份">
+																	<option value=""></option>
+																	<option value="学员"> 学员 </option>
+																	<option value="干部"> 干部 </option>
+																	
+																</select>
+															
 														</span>
 													</label>
 													<label class="block clearfix">

@@ -3,9 +3,14 @@
 	session_start();
 //	echo $username.$passwd;
 	//  
-	$query_user="select * from user where username = '$username' and pass = '$passwd'";   // 
+	if($username == '' or $passwd == '')
+		header("Location: ../user/demo.php");
+	else
+	{
+		$query_user="select * from user where username = '$username' and pass = '$passwd'";   // 
  	$result = mysqli_query($connect,$query_user);// 
 	$num_results=$result->num_rows;// 
+	echo $num_results;
 	if($num_results==0)   //  
 	{
 	    echo 'login fail!!';
@@ -19,5 +24,7 @@
 		$_SESSION['isLogin']=1;
 		header("Location: ../../user/index.php");
 	}
+	}
+	
 ?>
 
