@@ -1,8 +1,7 @@
 <?php
 	require('conn.php');
 	session_start();
-	$query_user="select * from admin where username = '$username' and password = '$passwd'";   // 
-	
+	$query_user="select * from user where username = '$username' and pass = '$passwd'";   // 
 	$result = mysqli_query($connect,$query_user);// 
 	$num_results=$result->num_rows;// 
 	if($num_results==0)   //  

@@ -44,7 +44,7 @@
 								<h1>
 									<i class="ace-icon fa fa-leaf green"></i>
 									<span class="red"></span>
-									<span class="white" id="id-text2">后台管理</span>
+									<span class="white" id="id-text2">系统后台管理</span>
 								</h1>
 								<h4 class="blue" id="id-company-text">&copy; XD</h4>
 							</div>
@@ -159,7 +159,7 @@
 			});
 		</script>
 		<div style="text-align:center;">
-<p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+
 </div>
 	</body>
 </html>

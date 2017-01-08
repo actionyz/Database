@@ -21,7 +21,8 @@
 	{
 		//   
 		
-		$_SESSION['isLogin']=1;
+		$_SESSION['isLogin'] = 1;
+		$_SESSION["username"] = $username;
 		header("Location: ../../user/index.php");
 	}
 	}

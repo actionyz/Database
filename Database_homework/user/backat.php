@@ -65,7 +65,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
         </nav>
 
     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <input style='width:15%;height:38px' class='panel panel-default' type="text" name="occupier" placeholder="occupier">
+        <input style='width:15%;height:38px' class='panel panel-default' type="text" name="occupier" placeholder="occupier" value="<?php   echo $_SESSION["username"]; ?>"   readonly>
         <input class='btn btn-primary' type="submit" name="submit" value="查询">
     </form>
     

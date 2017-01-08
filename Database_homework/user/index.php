@@ -1,9 +1,12 @@
 <?php
 //include('../../loginregister_A5/loginregister/login/test.php');
 session_start();
+//setcookie("username",$username, time()+3600*24);
 if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
  header("Location:  ../login/user/demo.php");
  exit();
+ echo $_SESSION['isLogin'];
+ echo 1;
 }
 ?>
 <!DOCTYPE html>

@@ -18,6 +18,7 @@ include("./login/link.php");
 if($link)
 {
 	$link->query("SET NAMES 'UTF8'");
+	$result = $link->query("SELECT * FROM `user` WHERE username = '$username'");
 	$insert=$link->query("INSERT INTO user VALUES ('$userid','$username','$pass','$identity','$section')");
 
 	echo "<script>alert('注册成功')</script>";

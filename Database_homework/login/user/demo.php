@@ -43,11 +43,11 @@
 						<div class="login-container">
 							<div class="center">
 								<h1>
-									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="red">Ace</span>
-									<span class="white" id="id-text2">应用管理</span>
+									
+									<span class="blue"><h2>大学教室资源</span>
+									<span class="white" id="id-text2">管理系统</span>
 								</h1>
-								<h4 class="blue" id="id-company-text">&copy; 公司名称</h4>
+								
 							</div>
 
 							<div class="space-6"></div>
@@ -56,9 +56,9 @@
 								<div id="login-box" class="login-box visible widget-box no-border">
 									<div class="widget-body">
 										<div class="widget-main">
-											<h4 class="header blue lighter bigger">
-												<i class="ace-icon fa fa-coffee green"></i>
-												请输入您的信息
+											<h4 text-align='center' class="header blue lighter bigger">
+											
+												      登录
 											</h4>
 
 											<div class="space-6"></div>
@@ -80,38 +80,19 @@
 													</label>
 
 													<div class="space"></div>
-
-													<div class="clearfix">
-														<label class="inline">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"> 记住</span>
-														</label>
-													<input type="submit" name="sub">
+													
+													<div class="clear">
+													
+													<input  class='btn btn-primary' type="submit"  >
 													</div>
-
+													
 													<div class="space-4"></div>
 												</fieldset>
 											</form>
 
-											<div class="social-or-login center">
-												<span class="bigger-110">第三方登录</span>
-											</div>
+											
 
-											<div class="space-6"></div>
-
-											<div class="social-login center">
-										=		<a class="btn btn-primary">
-													<i class="ace-icon fa fa-facebook"></i>
-												</a>
-
-												<a class="btn btn-info">
-													<i class="ace-icon fa fa-twitter"></i>
-												</a>
-
-												<a class="btn btn-danger">
-													<i class="ace-icon fa fa-google-plus"></i>
-												</a>
-											</div>
+											
 										</div><!-- /.widget-main -->
 
 										<div class="toolbar clearfix">
@@ -196,7 +177,7 @@
 														<span class="block input-icon input-icon-right">
 							
 															<select  type="text" class="form-control" name="section" placeholder="单位">
-																	<option value=""></option>
+																	<option value="">单位</option>
 																	<option value="四大队三营"> 四大队三营 </option>
 																	<option value="四大队四营"> 四大队四营 </option>
 																	
@@ -206,7 +187,7 @@
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 																<select  type="text" class="form-control" name="identity" placeholder="身份">
-																	<option value=""></option>
+																	<option value="">身份</option>
 																	<option value="学员"> 学员 </option>
 																	<option value="干部"> 干部 </option>
 																	
@@ -214,10 +195,49 @@
 															
 														</span>
 													</label>
+													<script type="text/javascript">  
+														function createXMLHttpRequest() {  
+														    try {  
+														        return new XMLHttpRequest();  
+														    } catch (e) {  
+														        try {  
+														            return new ActiveXObject("Msxml2.XMLHTTP");  
+														        } catch (e) {  
+														            return new ActiveXObject("Microsoft.XMLHTTP");  
+														        }  
+														    }  
+														}  
+														  
+														function send() {  
+														    var xmlHttp = createXMLHttpRequest();  
+														    xmlHttp.onreadystatechange = function() {  
+														        if(xmlHttp.readyState == 4 && xmlHttp.status == 200) {  
+														            /*if(xmlHttp.responseText == "true") {  
+														                document.getElementById("error").innerHTML = xmlHttp.responseText;  
+														            } else {
+														                document.getElementById("error").innerHTML = "";  
+														            }  */if(xmlHttp.responseText)
+														            {
+														            	document.getElementById("error").innerHTML = "用户名已存在！！！";
+														            	document.getElementById("checkregister").setAttribute('disabled','disabled');
+														            }
+														            else{
+														            	document.getElementById("error").innerHTML = "";
+														            	document.getElementById("checkregister").removeAttribute('disabled');
+														            }
+														            
+														        }  
+														    };  
+														    xmlHttp.open("POST", "./checkexist.php", true);  
+														    xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");  
+														    var username = document.getElementById("checkusername").value;  
+														    xmlHttp.send("username=" + username);  
+														}  
+														</script>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" 
-															name="username" placeholder="用户名" />
+															<input id='checkusername' type="text" class="form-control" 
+															name="username" onblur="send()" placeholder="用户名" /><p id="error"></p>
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
@@ -247,7 +267,7 @@
 															<span class="bigger-110">重置</span>
 														</button>
 
-														<button type="submit" class="width-65 pull-right btn btn-sm btn-success">
+														<button type="submit" class="width-65 pull-right btn btn-sm btn-success" id='checkregister'>
 															<span class="bigger-110">注册</span>
 
 															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
@@ -270,15 +290,15 @@
 							<div class="navbar-fixed-top align-right">
 								<br />
 								&nbsp;
-								<a id="btn-login-dark" href="#">Dark</a>
+								<a id="btn-login-light" href="#">Light</a>
 								&nbsp;
 								<span class="blue">/</span>
 								&nbsp;
 								<a id="btn-login-blur" href="#">Blur</a>
 								&nbsp;
-								<span class="blue">/</span>
+								<span class="blue">/</span>	
 								&nbsp;
-								<a id="btn-login-light" href="#">Light</a>
+								<a id="btn-login-dark" href="#">dark</a>
 								&nbsp; &nbsp; &nbsp;
 							</div>
 						</div>
@@ -329,16 +349,17 @@
 			
 			//you don't need this, just used for changing background
 			jQuery(function($) {
-			 $('#btn-login-dark').on('click', function(e) {
-				$('body').attr('class', 'login-layout');
-				$('#id-text2').attr('class', 'white');
+				$('#btn-login-light').on('click', function(e) {
+				$('body').attr('class', 'login-layout light-login');
+				$('#id-text2').attr('class', 'grey');
 				$('#id-company-text').attr('class', 'blue');
+			
 				
 				e.preventDefault();
 			 });
-			 $('#btn-login-light').on('click', function(e) {
-				$('body').attr('class', 'login-layout light-login');
-				$('#id-text2').attr('class', 'grey');
+			  $('#btn-login-dark').on('click', function(e) {
+				$('body').attr('class', 'login-layout');
+				$('#id-text2').attr('class', 'white');
 				$('#id-company-text').attr('class', 'blue');
 				
 				e.preventDefault();
@@ -354,7 +375,7 @@
 			});
 		</script>
 		<div style="text-align:center;">
-<p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+
 </div>
 	</body>
 </html>

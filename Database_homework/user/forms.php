@@ -67,14 +67,14 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             
         教学楼号:<select class='panel panel-default' style="width:100px;height: 35px"  type="text"  name="buildid" placeholder="buildid">
-            <option value=""></option>
+            
             <option value="1"> 1 </option>
             <option value="2"> 2 </option>
             <option value="1"> 3 </option>           
         </select>
         
        日期:<select class='panel panel-default' style="width:100px;height: 35px" type="text"  name="date" placeholder="date">
-            <option value=""></option>
+            
             <option value="Monday"> Monday </option>
             <option value="Tuesday"> Tuesday </option>
             <option value="Wednesday"> Wednesday </option>
@@ -87,8 +87,9 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
         开始时间:<input class='panel panel-default' style="width:100px;height: 35px" type="text" name="begintime" placeholder="begintime">
         结束时间:<input class='panel panel-default' style="width:100px;height: 35px" type="text" name="endtime" placeholder="endtime">
         原因:<input class='panel panel-default' style="width:100px;height: 35px" type="text" name="reason" placeholder="reason">
-        使用者:<input class='panel panel-default' style="width:100px;height: 35px" type="text" name="occupier" placeholder="occupier">
+        使用者:<input class='panel panel-default' style="width:100px;height: 35px" type="text" name="occupier" placeholder="occupier"  value="<?php   echo $_SESSION["username"]; ?>"   readonly>
         <input class='btn btn-primary'  type="submit" name="submit" value="查询">
+        
     </form>
     <hr>
     <?php
@@ -105,42 +106,57 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
         {
             $link->query("SET NAMES 'UTF8'");
 
-            $result1 = $link->query("SELECT count(*) FROM `order` WHERE occupier = '$occupier'");
-            $row1 = $result1->fetch_row();
-            $append = array();
-            if($row1[0] > 3)
-                echo '<div class="alert alert-dismissable alert-danger" width="50%">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>预定数超过了三个！！！</strong>请及时退订！！！
-            </div>';
-            else
-            {
-                $result = $link->query("SELECT classid,charnum from classroom where buildid = $buildid and classid  not in (select classid from course where time_to_sec(begintime) < time_to_sec('$endtime') and time_to_sec(endtime) > time_to_sec('$begintime') and `date` = '$date') and classid  not in (select classid from `order` where time_to_sec(begintime) < time_to_sec('$endtime') and time_to_sec(endtime) > time_to_sec('$begintime') and `date` = '$date')");
-                echo '<div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> 查询结果</h3>
-                        </div>
-                        <div class="panel-body">';
-                while($row=$result->fetch_row())
-                {
-                   echo "<form style='height:50px' action='./update.php' method='POST'>
-                            <input style='width:15%;height:50px' class='panel panel-default' type='text' name='classid' value='".$row[0]."'>
-                            <input class='panel panel-default' type='hide' style='display:none' name='date' value='".$date."'>
-                            <input type='hide' style='display:none' name='begintime' value='".$begintime."'>
-                            <input type='hide' style='display:none' name='endtime' value='".$endtime."'>
-                            <input type='hide' style='display:none' name='occupier' value='".$occupier."'>
-                            <input type='hide' style='display:none' name='reason' value='".$reason."'>
-                            <input style='width:10%;height:50px'  class='btn btn-primary' type='submit' value='申请'>
-                        </form>"."<p>教室座位：".$row[1]."</p>"."</br>"."<hr>";
-                }
-                echo '<div id="shieldui-grid1"></div>
-                        </div>
-                    </div>';
+           $result1 = $link->query("SELECT count(*) FROM `order` WHERE occupier = '$occupier'");
+           if($row1 = $result1->fetch_row())
+           {                
+                if($row1[0] > 3)
+                    {
+                        echo '<div class="alert alert-dismissable alert-danger" width="50%">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>预定数超过了三个！！！</strong>请及时退订！！！
+                </div>';
+                goto loop;
+                    }
+           }
+            
+             /*   if($row1[0] > 3)
+                    echo '<div class="alert alert-dismissable alert-danger" width="50%">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>预定数超过了三个！！！</strong>请及时退订！！！
+                </div>';
+                else
+                {*/
+                    $result = $link->query("SELECT classid,charnum from classroom where buildid = $buildid and classid  not in (select classid from course where time_to_sec(begintime) < time_to_sec('$endtime') and time_to_sec(endtime) > time_to_sec('$begintime') and `date` = '$date') and classid  not in (select classid from `order` where time_to_sec(begintime) < time_to_sec('$endtime') and time_to_sec(endtime) > time_to_sec('$begintime') and `date` = '$date')");
+                    echo '<div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> 查询结果</h3>
+                            </div>
+                            <div class="panel-body">';
+                    while($row=$result->fetch_row())
+                    {
+                       echo "<form style='height:50px' action='./update.php' method='POST'>
+                                <input style='width:15%;height:50px' class='panel panel-default' type='text' name='classid' value='".$row[0]."'>
+                                <input class='panel panel-default' type='hide' style='display:none' name='date' value='".$date."'>
+                                <input type='hide' style='display:none' name='begintime' value='".$begintime."'>
+                                <input type='hide' style='display:none' name='endtime' value='".$endtime."'>
+                                <input type='hide' style='display:none' name='occupier' value='".$occupier."'>
+                                <input type='hide' style='display:none' name='reason' value='".$reason."'>
+                                <input style='width:10%;height:50px'  class='btn btn-primary' type='submit' value='申请'>
+                            </form>"."<p>教室座位：".$row[1]."</p>"."</br>"."<hr>";
+                    }
+                    echo '<div id="shieldui-grid1"></div>
+                            </div>
+                        </div>';
+               // }
+            
+       
             
                 
-            }
             
-        }
+                
+            
+            
+loop:        }
     }
  //   echo $_POST['classid'];
 
