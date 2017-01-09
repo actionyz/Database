@@ -43,38 +43,31 @@
 						<div class="login-container">
 							<div class="center">
 								<h1>
-									
 									<span class="blue"><h2>大学教室资源</span>
 									<span class="white" id="id-text2">管理系统</span>
 								</h1>
-								
 							</div>
-
 							<div class="space-6"></div>
-
 							<div class="position-relative">
 								<div id="login-box" class="login-box visible widget-box no-border">
 									<div class="widget-body">
 										<div class="widget-main">
 											<h4 text-align='center' class="header blue lighter bigger">
-											
 												      登录
 											</h4>
-
 											<div class="space-6"></div>
-
 											<form action="../login/userlogin.php" method="POST">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" name="Username" />
+															<input type="text" class="form-control" name="Username" placeholder="用户名"/>
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" name="Password" />
+															<input type="password" class="form-control" name="Password" placeholder="密码"/>
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
@@ -213,12 +206,13 @@
 															if(a==""||b==""||c==""||d==""||e=="")
 															{
 																document.getElementById("checkregister").setAttribute('disabled','disabled');
+																alert("请填写完整！");
 															}
 															else
 															{
-																document.getElementById("checkregister").setAttribute('disabled','disabled');
+																document.getElementById("checkregister").removeAttribute('disabled');
 															}
-															alert("请填写完整！");
+															
 														}
 														function unlock()
 														{
@@ -245,8 +239,8 @@
 														</span>
 													</label>
 													<label class="block clearfix">
-														<span id="identity" class="block input-icon input-icon-right">
-																<select  type="text" class="form-control" name="identity" placeholder="身份">
+														<span  class="block input-icon input-icon-right">
+																<select  id="identity" type="text" class="form-control" name="identity" placeholder="身份">
 																	<option value="">身份</option>
 																	<option value="学员"> 学员 </option>
 																	<option value="干部"> 干部 </option>
@@ -397,7 +391,6 @@
 			});
 		</script>
 		<div style="text-align:center;">
-
 </div>
 	</body>
 </html>

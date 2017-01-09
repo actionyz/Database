@@ -64,8 +64,34 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             </div>
         </nav>
 
+
+
+
+<script type="text/javascript">
+function check()
+{
+    var a,b,c,d,e,f;
+    a = document.getElementById("begintime").value;
+    b = document.getElementById("endtime").value;
+    c = document.getElementById("reason").value;
+    if(a==""||b==""||c=="")
+    {
+        document.getElementById("checklogin").setAttribute('disabled','disabled');
+        alert("请填写完整！");
+    }
+    else
+    {
+        document.getElementById("checklogin").removeAttribute('disabled');
+    }
+    
+}
+function unlock()
+{
+    document.getElementById("checklogin").removeAttribute('disabled');
+}
+
+</script>
     <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            
         教学楼号:<select class='panel panel-default' style="width:100px;height: 35px"  type="text"  name="buildid" placeholder="buildid">
             
             <option value="1"> 1 </option>
@@ -84,11 +110,11 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             <option value="Sunday"> Sunday </option>
         </select>   
         
-        开始时间:<input class='panel panel-default' style="width:100px;height: 35px" type="text" name="begintime" placeholder="begintime">
-        结束时间:<input class='panel panel-default' style="width:100px;height: 35px" type="text" name="endtime" placeholder="endtime">
-        原因:<input class='panel panel-default' style="width:100px;height: 35px" type="text" name="reason" placeholder="reason">
+        开始时间:<input onblur="unlock()" id='begintime' class='panel panel-default' style="width:100px;height: 35px" type="text" name="begintime" placeholder="begintime">
+        结束时间:<input onblur="unlock()" id='endtime' class='panel panel-default' style="width:100px;height: 35px" type="text" name="endtime" placeholder="endtime">
+        原因:<input onblur="unlock()" id='reason' class='panel panel-default' style="width:100px;height: 35px" type="text" name="reason" placeholder="reason">
         使用者:<input class='panel panel-default' style="width:100px;height: 35px" type="text" name="occupier" placeholder="occupier"  value="<?php   echo $_SESSION["username"]; ?>"   readonly>
-        <input class='btn btn-primary'  type="submit" name="submit" value="查询">
+        <input id='checklogin' class='btn btn-primary'  type="submit" name="submit" onclick="check()" value="查询">
         
     </form>
     <hr>
