@@ -164,37 +164,6 @@
 
 											<div class="space-6"></div>
 											<p>填写信息: </p>
-
-											<form action="../register.php" method="post">
-												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" name="userid" placeholder="用户ID" />
-															<i class="ace-icon fa fa-user"></i>
-														</span>
-													</label>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-							
-															<select  type="text" class="form-control" name="section" placeholder="单位">
-																	<option value="">单位</option>
-																	<option value="四大队三营"> 四大队三营 </option>
-																	<option value="四大队四营"> 四大队四营 </option>
-																	
-															</select>
-														</span>
-													</label>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-																<select  type="text" class="form-control" name="identity" placeholder="身份">
-																	<option value="">身份</option>
-																	<option value="学员"> 学员 </option>
-																	<option value="干部"> 干部 </option>
-																	
-																</select>
-															
-														</span>
-													</label>
 													<script type="text/javascript">  
 														function createXMLHttpRequest() {  
 														    try {  
@@ -230,13 +199,66 @@
 														    };  
 														    xmlHttp.open("POST", "./checkexist.php", true);  
 														    xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");  
-														    var username = document.getElementById("checkusername").value;  
+														    var username = document.getElementById("username").value;  
 														    xmlHttp.send("username=" + username);  
 														}  
+														function check()
+														{
+															var a,b,c,d,e,f;
+															a = document.getElementById("userid").value;
+															b = document.getElementById("section").value;
+															c = document.getElementById("identity").value;
+															d = document.getElementById("username").value;
+															e = document.getElementById("password").value;
+															if(a==""||b==""||c==""||d==""||e=="")
+															{
+																document.getElementById("checkregister").setAttribute('disabled','disabled');
+															}
+															else
+															{
+																document.getElementById("checkregister").setAttribute('disabled','disabled');
+															}
+															alert("请填写完整！");
+														}
+														function unlock()
+														{
+															document.getElementById("checkregister").removeAttribute('disabled');
+														}
 														</script>
+											<form action="../register.php" method="post">
+												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input id='checkusername' type="text" class="form-control" 
+															<input id="userid" type="text" class="form-control" name="userid" onblur="unlock()" placeholder="用户ID" />
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+							
+															<select id="section" type="text" class="form-control" name="section" placeholder="单位">
+																	<option value="">单位</option>
+																	<option value="四大队三营"> 四大队三营 </option>
+																	<option value="四大队四营"> 四大队四营 </option>
+																	
+															</select>
+														</span>
+													</label>
+													<label class="block clearfix">
+														<span id="identity" class="block input-icon input-icon-right">
+																<select  type="text" class="form-control" name="identity" placeholder="身份">
+																	<option value="">身份</option>
+																	<option value="学员"> 学员 </option>
+																	<option value="干部"> 干部 </option>
+																	
+																</select>
+															
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input id='username' type="text" class="form-control" 
 															name="username" onblur="send()" placeholder="用户名" /><p id="error"></p>
 															<i class="ace-icon fa fa-user"></i>
 														</span>
@@ -244,7 +266,7 @@
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" name="pass" placeholder="密码" />
+															<input id="password" type="password" class="form-control" name="pass" onblur="unlock()" placeholder="密码" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
@@ -267,7 +289,7 @@
 															<span class="bigger-110">重置</span>
 														</button>
 
-														<button type="submit" class="width-65 pull-right btn btn-sm btn-success" id='checkregister'>
+														<button type="submit" class="width-65 pull-right btn btn-sm btn-success" id='checkregister' onclick="check()">
 															<span class="bigger-110">注册</span>
 
 															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>

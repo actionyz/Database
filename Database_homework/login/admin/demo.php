@@ -42,7 +42,7 @@
 						<div class="login-container">
 							<div class="center">
 								<h1>
-									<i class="ace-icon fa fa-leaf green"></i>
+									
 									<span class="red"></span>
 									<span class="white" id="id-text2">系统后台管理</span>
 								</h1>
@@ -54,7 +54,7 @@
 									<div class="widget-body">
 										<div class="widget-main">
 											<h4 class="header blue lighter bigger">
-												<i class="ace-icon fa fa-coffee green"></i>
+												
 												请输入您的信息
 											</h4>
 											<div class="space-6"></div>

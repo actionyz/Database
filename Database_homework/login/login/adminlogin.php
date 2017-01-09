@@ -13,7 +13,7 @@
 	{
 		
 		$_SESSION['isLogin']=1;
-		header("Location: ../../admin/Theme-DeepBlueAdmin/index.php");
+		header("Location: ../../admin/index.php");
 	}
 ?>
 
