@@ -48,7 +48,7 @@
                     <li><a href="backat.php"><i class="fa fa-list-ol"></i> 退报教室</a></li>
                     <li><a href="classview.php"><i class="fa fa-font"></i> 教室课程查询</a></li>
                     <li><a href="repair.php"><i class="fa fa-font"></i> 教室报修</a></li>
-                    <li><a href="bootstrap-elements.php"><i class="fa fa-font"></i> 模板</a></li>
+                    
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right navbar-user">
@@ -157,4 +157,5 @@
     </div>
 
 </body>
+<script type='text/javascript' color='#D6D6D6' zIndex='-1' opacity='20' count='99' src='./canvas-nest.min.js' style = "opacity: 0.2 ;"></script>
 </html>

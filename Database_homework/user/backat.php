@@ -22,7 +22,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+   
     <!-- <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script> -->
     <!-- <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script> -->
 </head>
@@ -46,7 +46,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                     <li><a href="backat.php"><i class="fa fa-list-ol"></i> 退报教室</a></li>
                     <li><a href="classview.php"><i class="fa fa-font"></i> 教室课程查询</a></li>
                     <li><a href="repair.php"><i class="fa fa-font"></i> 教室报修</a></li>
-                    <li><a href="bootstrap-elements.php"><i class="fa fa-font"></i> 模板</a></li>
+                    
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right navbar-user">

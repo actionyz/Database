@@ -30,7 +30,6 @@
         $filename [0]=$time;//取文件名t替换    
         $name=implode (".",$filename); //上传后的文件名    
         $uploadfile=$filePath.$name;//上传后的文件名地址    
-      
          
         //move_uploaded_file() 函数 将上传的文件移动到新位置。若成功，则返回 true，否则返回 false。   
         $result=move_uploaded_file($filetempname,$uploadfile);//假如上传到当前目录下   
@@ -67,7 +66,7 @@
                 if($flag === "major")
                   $sql="INSERT INTO `major`(`majorid`, `majorname`, `number`, `academy`, `battalion`) VALUES ('$strs[0]','$strs[1]','$strs[2]','$strs[3]','$strs[4]')"; 
                 if($flag === "course")
-                  $sql = "INSERT INTO `course`(`majorid`, `courseid`, `date`, `classid`, `begintime`, `endtime`) VALUES  ('$strs[0]','$strs[1]','$strs[2]','$strs[3]','$strs[4]')";
+                  $sql = "INSERT INTO `course`(`majorid`, `courseid`, `date`, `classid`, `begintime`, `endtime`) VALUES  ('$strs[0]','$strs[1]','$strs[2]','$strs[3]','$strs[4]','$strs[5]')";
                 if($flag === "classroom")
                 $sql = "INSERT INTO `classroom`(`classid`, `charnum`, `repair`, `buildid`, `floor`, `use`, `reason`) VALUES ('$strs[0]','$strs[1]','$strs[2]','$strs[3]','$strs[4]','$strs[5]','$strs[6]')";      
                 $link->query("SET NAMES 'UTF8'");  

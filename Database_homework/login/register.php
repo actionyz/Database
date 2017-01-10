@@ -30,6 +30,6 @@ else
 <!DOCTYPE html>
 <html>
 <script type="text/javascript">
-setTimeout(" window.location.href='./user/demo.php'",0)
+setTimeout(" window.location.href='./user/login.php'",0)
 </script>
 </html>

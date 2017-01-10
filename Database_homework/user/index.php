@@ -24,7 +24,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+  
     <!-- <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script> -->
     <!-- <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script> -->
 </head>
@@ -48,7 +48,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                     <li><a href="backat.php"><i class="fa fa-list-ol"></i> 退报教室</a></li>
                     <li><a href="classview.php"><i class="fa fa-font"></i> 教室课程查询</a></li>
                     <li><a href="repair.php"><i class="fa fa-font"></i> 教室报修</a></li>
-                    <li><a href="bootstrap-elements.php"><i class="fa fa-font"></i> 模板</a></li>
+                  
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right navbar-user">
@@ -71,7 +71,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
               <h1 id="container">大学教室管理系统</h1>
             </div>
             <div class="bs-example">
-              <div class="jumbotron">
+              <div class="jumbotron" style = "opacity: 0.8">
                 <h2>五大功能</h2>
                 <p>1.校园一角</p>
                 <p>2.预定教室</p>
@@ -178,5 +178,6 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             });
         });
     </script>
+    <script type='text/javascript' color=#4876FF zIndex='-1' opacity='20' count='99' src='./canvas-nest.min.js' ></script>
 </body>
 </html>

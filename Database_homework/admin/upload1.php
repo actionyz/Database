@@ -41,12 +41,9 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active"><a href="index.php"><i class="fa fa-bullseye"></i> 主页</a></li>
-                    <li><a href="portfolio.php"><i class="fa fa-tasks"></i> 校园一角</a></li>
-                    <li><a href="forms.php"><i class="fa fa-list-ol"></i> 预定教室</a></li>
-                    <li><a href="backat.php"><i class="fa fa-list-ol"></i> 退报教室</a></li>
-                    <li><a href="classview.php"><i class="fa fa-font"></i> 教室课程查询</a></li>
-                    <li><a href="repair.php"><i class="fa fa-font"></i> 教室报修</a></li>
-                    <li><a href="bootstrap-elements.php"><i class="fa fa-font"></i> 模板</a></li>
+                    <li><a href="upload1.php"><i class="fa fa-tasks"></i> 数据库导入</a></li>
+                    <li><a href="manage.php"><i class="fa fa-list-ol"></i> 人员管理</a></li>
+                    <li><a href="fix.php"><i class="fa fa-list-ol"></i> 教室报修情况</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right navbar-user">
@@ -69,7 +66,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
               <h1 align="center" id="container">数据库导入</h1>
             </div>
             <div class="bs-example">
-              <div class="jumbotron">
+              <div class="jumbotron" style="opacity: 0.8">
                 
                  <form method="post" action="./upload/upload.php" enctype="multipart/form-data">
             
@@ -79,11 +76,13 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             <input type="submit" name="any" value="导入" >
             </form>
         <hr>
-            <form method="post" action="./upload/upload.php" enctype="multipart/form-data">
+         <form method="post" action="./upload/upload.php" enctype="multipart/form-data">
+            
             <h3>course表:</h3>
-            <input  type="file" name="file" size="20" >
+            <input type="file" name="file" size="20" />
             <input type="text" style='display:none'  name="import" value="course" />
-            <input type="submit" name="any" value="导入">
+            <input type="submit" name="any" value="导入" >
+            </form>
             
             
             </form>
@@ -216,5 +215,6 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             });
         });
     </script>
+    <script type='text/javascript' color=#C2C2C2 zIndex='-1' opacity='20' count='99' src='./canvas-nest.min.js'></script>
 </body>
 </html>

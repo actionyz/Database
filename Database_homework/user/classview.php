@@ -46,7 +46,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                     <li><a href="backat.php"><i class="fa fa-list-ol"></i> 退报教室</a></li>
                     <li><a href="classview.php"><i class="fa fa-font"></i> 教室课程查询</a></li>
                     <li><a href="repair.php"><i class="fa fa-font"></i> 教室报修</a></li>
-                    <li><a href="bootstrap-elements.php"><i class="fa fa-font"></i> 模板</a></li>
+                    
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right navbar-user">
@@ -67,7 +67,11 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>当前上课教室查询<small></small></h1>
+                    <h1><?php 
+                    date_default_timezone_set('PRC');$today = getdate();
+                    echo strtoupper($today['weekday']).' '.$today['hours'].':'.$today['minutes'];
+
+                    ?>教室占用情况查询<small></small></h1>
                 </div>
             </div>
                 <form action="" method="get" id="slt"> 
@@ -101,7 +105,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                 $buildid = $_GET["build"]; 
                 $floorid = $_GET["floor"]; 
                 $today = getdate();//获取今天时间的关联数组
-                // echo $today["weekday"]
+                 
                 
                 if(!$mysqli)
                 {
@@ -143,8 +147,13 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                 
             ?>
         </div>
+          <div class="alert alert-dismissable alert-success" width="50%">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>查看</strong> 当前时间教室的占用情况
+            </div>      
     </div>
     <!-- /#wrapper -->
 
 </body>
+<script type='text/javascript' color='#000000' zIndex='-1' opacity='20' count='99' src='./canvas-nest.min.js' style = "opacity: 0.2 ;"></script>
 </html>

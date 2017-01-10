@@ -15,16 +15,14 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大学教室管理系统</title>
-
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="css/local.css" />
-
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
+    
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+   
     <!-- <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script> -->
     <!-- <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script> -->
 </head>
@@ -44,11 +42,9 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                 <ul class="nav navbar-nav side-nav">
                     <li class="active"><a href="index.php"><i class="fa fa-bullseye"></i> 主页</a></li>
                     <li><a href="upload1.php"><i class="fa fa-tasks"></i> 数据库导入</a></li>
-                    <li><a href="forms.php"><i class="fa fa-list-ol"></i> 预定教室</a></li>
-                    <li><a href="backat.php"><i class="fa fa-list-ol"></i> 退报教室</a></li>
-                    <li><a href="classview.php"><i class="fa fa-font"></i> 教室课程查询</a></li>
-                    <li><a href="repair.php"><i class="fa fa-font"></i> 教室报修</a></li>
-                    <li><a href="bootstrap-elements.php"><i class="fa fa-font"></i> 模板</a></li>
+                    <li><a href="manage.php"><i class="fa fa-list-ol"></i> 人员管理</a></li>
+                    <li><a href="fix.php"><i class="fa fa-list-ol"></i> 教室报修情况</a></li>
+                    
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right navbar-user">
@@ -178,5 +174,6 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             });
         });
     </script>
+    <script type='text/javascript' color=#4876FF zIndex='-1' opacity='20' count='99' src='./canvas-nest.min.js'></script>
 </body>
 </html>

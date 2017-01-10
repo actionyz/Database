@@ -1,11 +1,11 @@
+
 <?php
 //include('../../loginregister_A5/loginregister/login/test.php');
 session_start();
 if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
- header("Location:  ../login/repairr/demo.php");
+ header("Location:  ../login/user/demo.php");
  exit();
 }
-//include('../login/login/conn.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,6 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
 </head>
-<script type="text/javascript"></script>
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -38,12 +37,9 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active"><a href="index.php"><i class="fa fa-bullseye"></i> 主页</a></li>
-                    <li><a href="portfolio.php"><i class="fa fa-tasks"></i> 校园一角</a></li>
-                    <li><a href="forms.php"><i class="fa fa-list-ol"></i> 预定教室</a></li>
-                    <li><a href="backat.php"><i class="fa fa-list-ol"></i> 退报教室</a></li>
-                    <li><a href="classview.php"><i class="fa fa-font"></i> 教室课程查询</a></li>
-                    <li><a href="repair.php"><i class="fa fa-font"></i> 教室报修</a></li>
-                    <li><a href="bootstrap-elements.php"><i class="fa fa-font"></i> 模板</a></li>
+                    <li><a href="upload1.php"><i class="fa fa-tasks"></i> 数据库导入</a></li>
+                    <li><a href="manage.php"><i class="fa fa-list-ol"></i> 人员管理</a></li>
+                    <li><a href="fix.php"><i class="fa fa-list-ol"></i> 教室报修情况</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right navbar-user">
@@ -61,43 +57,45 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             </div>
         </nav>
 
-	<?php
-		include("../login/login/link.php");
-        if(!$mysqli)
-        {
-            die($mysqli->error);
-        }
-        $sql = "select classid from classroom where `repair`=0";
-        $res = $mysqli->query($sql);
-        for ($i=0;$i<$res->num_rows;$i++)
-        {
-        	$row=$res->fetch_row();
-        	echo  "<h3>教室：".$row[0]."</h3></br>";
-        	echo "<form action='' method='get'><input type='text' name='classid' value='".$row[0]."' style='width:15%;height:40px'  class='panel panel-default' readonly>&nbsp&nbsp&nbsp<input type='text' name='reason' placeholder='reason' style='width:15%;height:40px' class='panel panel-default'></input><input class='btn btn-primary' type='submit' value='报修' >"."</br></br></form> 
-            <div class='bs-example'>
-              <div class='progress progress-striped active'>
-                <div class='progress-bar' style='width: 100%'></div>
+        <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="container" align="center">报修管理</h1>
+            </div>
+            <div class="bs-example">
+              <div class="jumbotron" style="opacity: 0.7">
+                <h2>报修教室</h2>
+
+                <?php
+                    include("../login/login/link.php");
+                    // $link=new mysqli("localhost","root","123456","college") or die("有错误".mysql_error());
+                    //$mysqli = new MySQLi("localhost","root","123456","college");
+
+                    $sql = "select classid from classroom where repair=1";
+                    $res = $mysqli->query($sql);
+                    for ($i=0;$i<$res->num_rows;$i++)
+                    {
+                        $row = $res->fetch_row();
+                        echo "</br><form action='' method='get'><input type='text' placeholder='classid' style='width:15%;height:40px' class='panel panel-default' value=\"$row[0]\"name='classid' readonly><input type='submit' value='已维修' class='btn btn-primary'></form>";
+                    }
+                    if(!empty($_GET))
+                    {
+                        $classid = $_GET['classid'];
+                        $sql ="UPDATE `classroom` SET `repair`=0 WHERE classid='".$classid."'";
+                        $res = $mysqli->query($sql);
+                        echo "<script> alert('删除成功');setTimeout(\" window.location.href='fix.php'\",0) </script>"; 
+                    }
+                ?>
+
+
+
               </div>
-            </div>";
-        }
-        if(!empty($_GET))
-        {
-	        $class = $_GET['classid'];		
-	        $reason = $_GET['reason'];
-	        $sql = "UPDATE `classroom` SET `repair`=1,`reason`='".$reason."' WHERE classid=".$class;
-	        $res = $mysqli->query($sql);
-	        $sql = "select classid from classroom where `repair`=0";
-	        echo "<script>alert('操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
-   		}
-	?>
-
-
-
-    
-
-    
-    </div>
+            </div>
+            <div class="alert alert-dismissable alert-success" width="50%">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>报修处理,手动删除</strong> 
+            </div>
+          </div>
     <!-- /#wrapper -->
-
 </body>
 </html>
+<script type='text/javascript' color=#C2C2C2 zIndex='-1' opacity='20' count='99' src='./canvas-nest.min.js'></script>

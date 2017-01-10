@@ -23,6 +23,25 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
 
 </head>
 <body>
+<script type="text/javascript">
+
+function check()
+{
+    
+    if(document.getElementById("form").value=='')
+    {
+        document.getElementById("button").setAttribute('disabled','disabled');
+        
+    }
+}
+
+function dis()
+{
+    document.getElementById("button").removeAttribute('disabled');
+}
+
+
+</script>
     <div id="wrapper">
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
@@ -42,7 +61,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                     <li><a href="backat.php"><i class="fa fa-list-ol"></i> 退报教室</a></li>
                     <li><a href="classview.php"><i class="fa fa-font"></i> 教室课程查询</a></li>
                     <li><a href="repair.php"><i class="fa fa-font"></i> 教室报修</a></li>
-                    <li><a href="bootstrap-elements.php"><i class="fa fa-font"></i> 模板</a></li>
+                  
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right navbar-user">
@@ -61,6 +80,8 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
         </nav>
 
 	<?php
+    echo "<h2>可报修的教室列表</<h2></h2>></br><hr>";
+
 		include("../login/login/link.php");
         if(!$mysqli)
         {
@@ -72,10 +93,10 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
         {
         	$row=$res->fetch_row();
         	echo  "<h3>教室：".$row[0]."</h3></br>";
-        	echo "<form action='' method='get'><input type='text' name='classid' value='".$row[0]."' style='width:15%;height:40px'  class='panel panel-default' readonly>&nbsp&nbsp&nbsp<input type='text' name='reason' placeholder='reason' style='width:15%;height:40px' class='panel panel-default'></input><input class='btn btn-primary' type='submit' value='报修' >"."</br></br></form> 
-            <div class='bs-example'>
+        	echo "<form action='' method='get'><input   type='text' name='classid' value='".$row[0]."' style='width:15%;height:40px'  class='panel panel-default' readonly>&nbsp&nbsp&nbsp<input id='form' type='text' name='reason' onblur='dis()' placeholder='原因' style='width:15%;height:40px' class='panel panel-default'></input><input id='button' class='btn btn-primary' onclick='check()' type='submit' value='报修' >"."</br></br></form> 
+            <div class='bs-example' style = 'opacity: 0.7 '>
               <div class='progress progress-striped active'>
-                <div class='progress-bar' style='width: 100%'></div>
+                <div class='progress-bar'  style='width: 100%'></div>
               </div>
             </div>";
         }
@@ -99,4 +120,5 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
     <!-- /#wrapper -->
 
 </body>
+
 </html>
