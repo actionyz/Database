@@ -3,7 +3,7 @@
 session_start();
 //setcookie("username",$username, time()+3600*24);
 if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
- header("Location:  ../login/user/demo.php");
+ header("Location:  ../login/user/login.php");
  exit();
  echo $_SESSION['isLogin'];
  echo 1;

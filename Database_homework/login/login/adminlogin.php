@@ -9,12 +9,12 @@
 	if($num_results==0)   //  
 	{
 loop:	    echo 'login fail!!';
-	    echo '<script>alert("false");window.location.href="../admin/demo.php";</script>';
+	    echo '<script>alert("false");window.location.href="../admin/login.php";</script>';
 	}
 	else if($num_results>0)   //  
 	{
 		
-		$_SESSION['isLogin']=1;
+		$_SESSION['isLogin']=2;
 		header("Location: ../../admin/index.php");
 	}
 ?>

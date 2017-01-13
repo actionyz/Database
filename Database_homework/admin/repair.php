@@ -1,8 +1,8 @@
 <?php
 //include('../../loginregister_A5/loginregister/login/test.php');
 session_start();
-if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
- header("Location:  ../login/repairr/demo.php");
+if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==2){
+ header("Location:  ../login/admin/login.php");
  exit();
 }
 //include('../login/login/conn.php');

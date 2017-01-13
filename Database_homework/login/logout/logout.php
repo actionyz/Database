@@ -7,5 +7,5 @@ if(isset($_COOKIE[session_name()]))
 	setcookie(session_name(),'',time-4200,'/');
 }
 session_destroy();
-header("Location:  ../user/demo.php");
+header("Location:  ../user/login.php");
 ?>

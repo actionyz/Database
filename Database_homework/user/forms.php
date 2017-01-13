@@ -2,7 +2,7 @@
 //include('../../loginregister_A5/loginregister/login/test.php');
 session_start();
 if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
- header("Location:  ../login/user/demo.php");
+ header("Location:  ../login/user/login.php");
  exit();
 }
 //include('../login/login/conn.php');
@@ -83,7 +83,23 @@ function check()
     {
         document.getElementById("checklogin").removeAttribute('disabled');
     }
-    
+    var begintime = a.split(':');
+    var endtime = b.split(":");
+    var time1 = parseInt(begintime[0]);
+    var time2 = parseInt(begintime[1]);
+    var time3 = parseInt(endtime[0]);
+    var time4 = parseInt(endtime[1]);
+    alert(time2);
+    if( (time1 > time3 ) || (time1 == time3 && time2 >time4) )
+    {
+        document.getElementById("checklogin").setAttribute('disabled','disabled');
+        alert("开始时间必须小于结束时间！！！");
+    }
+    else
+    {
+        document.getElementById("checklogin").removeAttribute('disabled');
+    }
+
 }
 function unlock()
 {

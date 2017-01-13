@@ -1,10 +1,18 @@
-
+<?php
+//include('../../loginregister_A5/loginregister/login/test.php');
+session_start();
+if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==2){
+ header("Location:  ../login/admin/login.php");
+ exit();
+}
+//include('../login/login/conn.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大学教室管理系统</title>
+    <title>教室后台管理系统</title>
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />

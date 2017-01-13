@@ -3,7 +3,7 @@ header('Content-Type:text/html;charset=utf-8');
 //include('../../loginregister_A5/loginregister/login/test.php');
 session_start();
 if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
- header("Location:  ../login/user/demo.php");
+ header("Location:  ../login/user/login.php");
  exit();
 }
 ?>
@@ -46,7 +46,6 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                     <li><a href="backat.php"><i class="fa fa-list-ol"></i> 退报教室</a></li>
                     <li><a href="classview.php"><i class="fa fa-font"></i> 教室课程查询</a></li>
                     <li><a href="repair.php"><i class="fa fa-font"></i> 教室报修</a></li>
-                    
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right navbar-user">
@@ -63,15 +62,16 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                 </ul>
             </div>
         </nav>
-
+        
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <h1><?php 
+                    header('Content-Type:text/html;charset=utf-8');
                     date_default_timezone_set('PRC');$today = getdate();
                     echo strtoupper($today['weekday']).' '.$today['hours'].':'.$today['minutes'];
 
-                    ?>教室占用情况查询<small></small></h1>
+                    ?></br>教室占用情况查询</h1>
                 </div>
             </div>
                 <form action="" method="get" id="slt"> 
@@ -98,6 +98,8 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                 // 连接数据库
                 // 取出数据
             include("../login/login/link.php");
+            //mysqli_set_charset ($link,utf8);
+            //mysqli_set_charset ($mysqli,'utf8');
             date_default_timezone_set('PRC');
             if(!empty($_GET))
             {
@@ -105,7 +107,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                 $buildid = $_GET["build"]; 
                 $floorid = $_GET["floor"]; 
                 $today = getdate();//获取今天时间的关联数组
-                 
+                // echo $today["weekday"]
                 
                 if(!$mysqli)
                 {
@@ -115,17 +117,19 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                 $minutes = $today["minutes"];
                 // 查course表
                 $sql =  "select * from course,classroom where course.classid=classroom.classid and classroom.floor=".$floorid." and classroom.buildid=".$buildid." and course.date='".$today["weekday"]."' and time_to_sec(course.begintime) < time_to_sec('".$hours.":".$minutes."') and time_to_sec(course.endtime) > time_to_sec('".$hours.":".$minutes."')";
-                    
                 $res = $mysqli->query($sql);
                 for($i=0;$i<$res->num_rows;$i++)
                 {
-                    $row=$res->fetch_row();
+                    $row  =$res->fetch_row();
+                    $sql = "select coursename from syllabus where courseid='".$row[1]."'";
+                    $res1 = $mysqli->query($sql);
+                    $row1 = $res1->fetch_row();
                     if($i%4==0&&$i!=0) echo "</br></br></br></br></br></br></br></br>";
                     echo "<div class=\"col-lg-3\">";
                     echo "<div class=\"panel-body alert-info\">";
                     echo "<div class=\"col-xs-5 text-right\">";
                     echo "<p class=\"alerts-heading\">".$row[6]."</p>";
-                    echo "<p class=\"alerts-text\" style=\"height: 30px; width:100px\">".$row[1]."</p>";
+                    echo "<p class=\"alerts-text\" style=\"height: 30px; width:100px\">".$row1[0]."</p>";
                     echo "</div></div></div>";
                 }
                 // 查`order`表
@@ -147,10 +151,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                 
             ?>
         </div>
-          <div class="alert alert-dismissable alert-success" width="50%">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>查看</strong> 当前时间教室的占用情况
-            </div>      
+            
     </div>
     <!-- /#wrapper -->
 

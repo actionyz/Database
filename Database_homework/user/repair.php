@@ -2,7 +2,7 @@
 //include('../../loginregister_A5/loginregister/login/test.php');
 session_start();
 if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
- header("Location:  ../login/repairr/demo.php");
+ header("Location:  ../login/user/login.php");
  exit();
 }
 //include('../login/login/conn.php');
@@ -80,7 +80,7 @@ function dis()
         </nav>
 
 	<?php
-    echo "<h2>可报修的教室列表</<h2></h2>></br><hr>";
+    echo "<h2>可报修的教室列表</h2></br><hr>";
 
 		include("../login/login/link.php");
         if(!$mysqli)

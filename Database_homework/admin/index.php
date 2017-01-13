@@ -1,20 +1,18 @@
 <?php
 //include('../../loginregister_A5/loginregister/login/test.php');
 session_start();
-//setcookie("username",$username, time()+3600*24);
-if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
- header("Location:  ../login/user/demo.php");
+if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==2){
+ header("Location:  ../login/admin/login.php");
  exit();
- echo $_SESSION['isLogin'];
- echo 1;
 }
+//include('../login/login/conn.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大学教室管理系统</title>
+    <title>教室后台管理系统</title>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="css/local.css" />
@@ -64,16 +62,15 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
 
         <div class="col-lg-12">
             <div class="page-header">
-              <h1 id="container">大学教室管理系统</h1>
+              <h1 id="container">教室后台管理系统</h1>
             </div>
             <div class="bs-example">
-              <div class="jumbotron">
+              <div class="jumbotron" style="opacity: 0.8">
                 <h2>五大功能</h2>
-                <p>1.校园一角</p>
-                <p>2.预定教室</p>
-                <p>3.退报教室</p>
-                <p>4.教室课程查询</p>
-                <p>5.教室报修</p>
+                <p>1.数据库批量导入</p>
+                <p>2.人员管理</p>
+                <p>3.报修管理</p>
+               
                 
               </div>
             </div>

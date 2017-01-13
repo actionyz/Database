@@ -1,8 +1,8 @@
 <?php
 //include('../../loginregister_A5/loginregister/login/test.php');
 session_start();
-if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
- header("Location:  ../login/user/demo.php");
+if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==2){
+ header("Location:  ../login/admin/login.php");
  exit();
 }
 //include('../login/login/conn.php');
@@ -12,7 +12,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大学教室管理系统</title>
+    <title>教室后台管理系统</title>
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
@@ -22,7 +22,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
     <!-- you need to include the shieldui css and js assets in order for the charts to work -->
-    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+   
     <!-- <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script> -->
     <!-- <script type="text/javascript" src="http://www.prepbootstrap.com/Content/js/gridData.js"></script> -->
 </head>
@@ -75,6 +75,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             <input type="text" style='display:none'  name="import" value="classroom" />
             <input type="submit" name="any" value="导入" >
             </form>
+            <a href="../excel/classroom.csv">下载导入模板</a>
         <hr>
          <form method="post" action="./upload/upload.php" enctype="multipart/form-data">
             
@@ -83,9 +84,10 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             <input type="text" style='display:none'  name="import" value="course" />
             <input type="submit" name="any" value="导入" >
             </form>
+            <a href="../excel/course.csv">下载导入模板</a>
+
             
             
-            </form>
         <hr>
             <form method="post" action="./upload/upload.php" enctype="multipart/form-data">
             <h3>major表:</h3>
@@ -93,6 +95,9 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             <input type="text" style='display:none'  name="import" value="major" />
             <input type="submit" name="any" value="导入">
             </form>
+            <a href="../excel/major.csv">下载导入模板</a>
+
+
         <hr>
             <form method="post" action="./upload/upload.php" enctype="multipart/form-data">
             <h3>order表:</h3>
@@ -100,6 +105,8 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             <input type="text" style='display:none'  name="import" value="order" />
             <input type="submit" name="any" value="导入">
             </form>
+            <a href="../excel/order.csv">下载导入模板</a>
+
         <hr>
             <form method="post" action="./upload/upload.php" enctype="multipart/form-data">
             <h3>user表:</h3>
@@ -107,6 +114,8 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
             <input type="text" style='display:none'  name="import" value="user" />
             <input type="submit" name="any" value="导入">
             </form>
+            <a href="../excel/user.csv">下载导入模板</a>
+
                 
               </div>
             </div>
@@ -117,7 +126,7 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
     <!-- /#wrapper -->
  <div class="alert alert-dismissable alert-success">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>实现</strong> 批量导入数据库功能，仅限制excel格式
+              <strong>实现</strong> 批量导入数据库功能，仅限制.csv格式
             </div>
 
 

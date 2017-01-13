@@ -4,7 +4,7 @@
 //	echo $username.$passwd;
 	//  
 	if($username == '' or $passwd == '')
-		header("Location: ../user/demo.php");
+		header("Location: ../user/login.php");
 	else
 	{
 		$query_user="select * from user where username = '$username' and pass = '$passwd'";   // 
@@ -14,7 +14,7 @@
 	if($num_results==0)   //  
 	{
 	    echo 'login fail!!';
-	    echo '<script>alert("false");window.location.href="../user/demo.php";</script>';
+	    echo '<script>alert("false");window.location.href="../user/login.php";</script>';
 
  	}
 	else if($num_results>0)   // ³É¹¦
