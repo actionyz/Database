@@ -63,39 +63,34 @@ if(!isset($_SESSION['isLogin']) || $_SESSION['isLogin']!==1){
                 </ul>
             </div>
         </nav>
-
-
-
-
 <script type="text/javascript">
+
 function check()
 {
     var a,b,c,d,e,f;
     a = document.getElementById("begintime").value;
     b = document.getElementById("endtime").value;
     c = document.getElementById("reason").value;
-    if(a==""||b==""||c=="")
-    {
-        document.getElementById("checklogin").setAttribute('disabled','disabled');
-        alert("请填写完整！");
-    }
-    else
-    {
-        document.getElementById("checklogin").removeAttribute('disabled');
-    }
     var begintime = a.split(':');
     var endtime = b.split(":");
     var time1 = parseInt(begintime[0]);
     var time2 = parseInt(begintime[1]);
     var time3 = parseInt(endtime[0]);
     var time4 = parseInt(endtime[1]);
-    alert(time2);
+    if(a==""||b==""||c=="")
+    {
+        document.getElementById("checklogin").setAttribute('disabled','disabled');
+        alert("请填写完整！");
+    }
+    
+
     if( (time1 > time3 ) || (time1 == time3 && time2 >time4) )
     {
         document.getElementById("checklogin").setAttribute('disabled','disabled');
         alert("开始时间必须小于结束时间！！！");
     }
-    else
+
+    if(a!=""&&b!=""&&c!=""&&(time1 < time3 )&&(time1 == time3 && time2 < time4) )
     {
         document.getElementById("checklogin").removeAttribute('disabled');
     }
@@ -160,14 +155,6 @@ function unlock()
                 goto loop;
                     }
            }
-            
-             /*   if($row1[0] > 3)
-                    echo '<div class="alert alert-dismissable alert-danger" width="50%">
-                  <button type="button" class="close" data-dismiss="alert">&times;</button>
-                  <strong>预定数超过了三个！！！</strong>请及时退订！！！
-                </div>';
-                else
-                {*/
                     $result = $link->query("SELECT classid,charnum from classroom where buildid = $buildid and classid  not in (select classid from course where time_to_sec(begintime) < time_to_sec('$endtime') and time_to_sec(endtime) > time_to_sec('$begintime') and `date` = '$date') and classid  not in (select classid from `order` where time_to_sec(begintime) < time_to_sec('$endtime') and time_to_sec(endtime) > time_to_sec('$begintime') and `date` = '$date')");
                     echo '<div class="panel panel-primary">
                             <div class="panel-heading">
@@ -189,7 +176,6 @@ function unlock()
                     echo '<div id="shieldui-grid1"></div>
                             </div>
                         </div>';
-               // }
             
        
             
